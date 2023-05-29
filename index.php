@@ -1,6 +1,6 @@
 <?php
 session_start();
-$maxIntentos = 5;
+$maxIntentos = 3;
 if (empty($_SESSION['intentos'])) {
     $_SESSION['intentos'] = 0;
 }
@@ -22,19 +22,19 @@ if (!empty($_SESSION['active'])) {
             $user = mysqli_real_escape_string($conexion, $_POST['usuario']);
             $clave = md5(mysqli_real_escape_string($conexion, $_POST['clave']));
             // Incrementar el número de intentos
-$_SESSION['intentos']++;
+            $_SESSION['intentos']++;
 
-// Verificar si se ha alcanzado el máximo de intentos permitidos
-if ($_SESSION['intentos'] >= $maxIntentos) {
-    $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            // Verificar si se ha alcanzado el máximo de intentos permitidos
+            if ($_SESSION['intentos'] >= $maxIntentos) {
+                $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                 Ha excedido el número máximo de intentos permitidos.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
                 </button>
-            </div>';
-    session_destroy();
-    exit; // Detener la ejecución del código
-}
+                </div>';
+                session_destroy();
+                exit; // Detener la ejecución del código
+            }
 
             $query = mysqli_query($conexion, "SELECT * FROM usuario WHERE usuario = '$user' AND clave = '$clave'");
             mysqli_close($conexion);

@@ -12,7 +12,7 @@ if (empty($_SESSION['active'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Panel de Administración</title>
+    <title>Sistema ventas</title>
     <link href="../assets/css/material-dashboard.css" rel="stylesheet" />
     <link href="../assets/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link rel="stylesheet" href="../assets/js/jquery-ui/jquery-ui.min.css">
@@ -57,12 +57,12 @@ if (empty($_SESSION['active'])) {
                             <p> Nueva Venta</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link d-flex" href="lista_ventas.php">
                             <i class="fas fa-cart-plus mr-2 fa-2x"></i>
                             <p> Historial Ventas</p>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
